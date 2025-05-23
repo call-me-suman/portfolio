@@ -64,6 +64,7 @@ export async function POST(request) {
       return NextResponse.json(
         {
           success: false,
+          // s
           message: "Name, email, and message are required.",
         },
         { status: 400 }
