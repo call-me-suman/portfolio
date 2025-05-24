@@ -2,7 +2,7 @@ import { NextResponse } from "next/server";
 import nodemailer from "nodemailer";
 
 // Create and configure Nodemailer transporter
-const transporter = nodemailer.createTransport({
+const transporter = nodemailer.createTransporter({
   service: "gmail",
   host: "smtp.gmail.com",
   port: 587,
@@ -53,6 +53,26 @@ async function sendEmail(payload) {
   }
 }
 
+// CORS headers helper
+function setCorsHeaders(response) {
+  response.headers.set("Access-Control-Allow-Origin", "*"); // Or specify your domain
+  response.headers.set(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, OPTIONS"
+  );
+  response.headers.set(
+    "Access-Control-Allow-Headers",
+    "Content-Type, Authorization"
+  );
+  return response;
+}
+
+// Handle OPTIONS preflight request
+export async function OPTIONS(request) {
+  const response = new NextResponse(null, { status: 200 });
+  return setCorsHeaders(response);
+}
+
 export async function POST(request) {
   try {
     const payload = await request.json();
@@ -61,55 +81,59 @@ export async function POST(request) {
 
     // Validate required fields
     if (!name || !email || !userMessage) {
-      return NextResponse.json(
+      const response = NextResponse.json(
         {
           success: false,
-          // s
           message: "Name, email, and message are required.",
         },
         { status: 400 }
       );
+      return setCorsHeaders(response);
     }
 
     // Validate environment variables
     if (!process.env.EMAIL_ADDRESS || !process.env.GMAIL_PASSKEY) {
-      return NextResponse.json(
+      const response = NextResponse.json(
         {
           success: false,
           message: "Email configuration is missing.",
         },
         { status: 500 }
       );
+      return setCorsHeaders(response);
     }
 
     // Send email
     const emailSuccess = await sendEmail(payload);
 
     if (emailSuccess) {
-      return NextResponse.json(
+      const response = NextResponse.json(
         {
           success: true,
           message: "Email sent successfully!",
         },
         { status: 200 }
       );
+      return setCorsHeaders(response);
     }
 
-    return NextResponse.json(
+    const response = NextResponse.json(
       {
         success: false,
         message: "Failed to send email.",
       },
       { status: 500 }
     );
+    return setCorsHeaders(response);
   } catch (error) {
     console.error("API Error:", error.message);
-    return NextResponse.json(
+    const response = NextResponse.json(
       {
         success: false,
         message: "Server error occurred.",
       },
       { status: 500 }
     );
+    return setCorsHeaders(response);
   }
 }
