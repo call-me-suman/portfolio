@@ -4,8 +4,7 @@ export const personalData = {
   description:
     "I'm a developer who likes building useful web apps. Alongside that, I study AI and enjoy exploring data to understand how things work. ",
   email: "sumank366929@gmail.com",
-  phone: "+8801608797655",
-  address: "Middle Badda, Dhaka, Bangladesh - 1212 ",
+
   github: "https://github.com/call-me-suman",
 
   linkedIn: "https://www.linkedin.com/in/suman-kesavan-",
