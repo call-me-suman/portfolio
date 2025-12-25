@@ -1,31 +1,19 @@
 import React from "react";
 import ProjectCard from "../projectcard.jsx";
+import { portfolioConfig } from "../../../portfolio.config.js";
 
 const Projects = () => {
-  const projectss = [
-    {
-      id: 1,
-      image: "/bcexam.png",
-      title: "EduLedger – Blockchain-based Exam Platform",
-      description:
-        "EduLedger is a decentralized exam platform that leverages blockchain technology to provide secure, transparent, and voice-enabled online examinations.",
-      techStack: ["Next.js", "Thirdweb", "Pinata", "Python", "Solidity"],
-      imageAlt: "eduledger screenshot",
-      githubUrl: "https://github.com/call-me-suman/BlockchainBasedExam",
-      liveUrl: "https://blockchain-based-exam--sigma.vercel.app/",
-    },
-    {
-      id: 2,
-      image: "/bcnotary.png",
-      title: "Blockchain-Based Notary System",
-      description:
-        "A decentralized notary platform for document verification and notarization using blockchain technology. The project is deployed on Vercel and tested on the Sepolia testnet.",
-      techStack: ["Next.js", "Thirdweb", "Solidity", "ipfs", "Spline"],
-      imageAlt: "blockchain based notary",
-      githubUrl: "https://github.com/call-me-suman/Blockchain-based-Notary-",
-      liveUrl: "https://blockchain-based-notary.vercel.app/",
-    },
-  ];
+  // Get projects from config
+  const projectss = portfolioConfig.projects.map(project => ({
+    id: project.id,
+    image: project.image,
+    title: project.title,
+    description: project.description,
+    techStack: project.tags,
+    imageAlt: project.title,
+    githubUrl: project.github,
+    liveUrl: project.demo,
+  }));
 
   return (
     <section id="projects" className="py-16 bg-gray-900 min-h-screen">
@@ -36,8 +24,7 @@ const Projects = () => {
             My Projects
           </h2>
           <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Explore my latest work in blockchain technology and decentralized
-            applications
+            Explore my latest work in AI, blockchain, backend engineering, and full-stack development
           </p>
         </div>
 

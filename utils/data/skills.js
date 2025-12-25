@@ -1,99 +1,13 @@
+import portfolioConfig from "@/portfolio.config";
+
+// Flatten all skills into a single array for the skills section
 export const skillsData = [
-  "HTML",
-  "CSS",
-  "Javascript",
-  "Typescript",
-  "Python",
-  "React",
-  "Next JS",
-  "Tailwind",
-  "MongoDB",
-  "MySQL",
-  "thirdweb",
-  "solidity",
-  "PostgreSQL",
-  "Git",
-  "Pytorch",
-  "Go",
+  ...portfolioConfig.skills.languages,
+  ...portfolioConfig.skills.frontend,
+  ...portfolioConfig.skills.backend,
+  ...portfolioConfig.skills.blockchain,
+  ...portfolioConfig.skills.database,
+  ...portfolioConfig.skills.cybersecurity,
+  ...portfolioConfig.skills.aiml,
+  ...portfolioConfig.skills.tools,
 ];
-
-/* 
-  HTML
-  CSS
-  JS 
-  React
-  Next JS
-  Nuxt JS
-  Node JS
-  Vue
-  Angular
-  Docker
-  Photoshop
-  Illustrator
-  Svelte
-  GCP
-  Azure
-  Fastify
-  Haxe
-  Ionic
-  Markdown
-  Microsoft Office
-  Picsart
-  Sketch
-  Unity
-  WolframAlpha
-  Adobe XD
-  After Effects
-  Bootstrap
-  Bulma
-  CapacitorJs
-  Coffeescript
-  MemSQL
-  C
-  C++
-  C#
-
-  Java
-  Julia
-  Matlab
-  Swift
-  Ruby
-  Kotlin
-  Go
-  PHP
-  Flutter
-  Dart
-  Typescript
-  Swift
-  Git
-  Figma
-  Canva
-  Ubuntu
-  Bootstrap
-  MongoDB
-  Tailwind
-  ViteJS
-  VuetifyJS
-  MySQL
-  PostgreSQL
-  AWS
-  Firebase
-  Blender
-  Premiere Pro
-  Adobe Audition
-  Deno
-  Django
-  Gimp
-  Graphql
-  Lightroom
-  MaterialUI
-  Nginx
-  Numpy
-  OpenCV
-  Pytorch
-  Selenium
-  Strapi
-  Tensorflow
-  Webex
-  Wordpress
-*/

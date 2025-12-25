@@ -90,6 +90,7 @@ export const skillsImage = (skill) => {
     case "gcp":
       return gcp;
     case "html":
+    case "html5":
       return html;
     case "photoshop":
       return photoshop;
@@ -110,16 +111,22 @@ export const skillsImage = (skill) => {
     case "javascript":
       return javascript;
     case "next js":
+    case "next.js":
+    case "nextjs":
       return nextJS;
     case "nuxt js":
       return nuxtJS;
     case "react":
+    case "react.js":
+    case "reactjs":
       return react;
     case "svelte":
       return svelte;
     case "typescript":
       return typescript;
     case "vue":
+    case "vue.js":
+    case "vuejs":
       return vue;
     case "bootstrap":
       return bootstrap;
@@ -136,8 +143,11 @@ export const skillsImage = (skill) => {
     case "mysql":
       return mysql;
     case "postgresql":
+    case "postgres":
       return postgresql;
     case "tailwind":
+    case "tailwind css":
+    case "tailwindcss":
       return tailwind;
     case "vitejs":
       return vitejs;
@@ -242,6 +252,8 @@ export const skillsImage = (skill) => {
     case "pandas":
       return pandas;
     case "sklearn":
+    case "scikit-learn":
+    case "scikitlearn":
       return scikitlearn;
     case ".net":
       return dotnet;
@@ -255,7 +267,58 @@ export const skillsImage = (skill) => {
       return sqlalchemy;
     case "fastapi":
       return fastapi;
+    // Additional mappings for skills without specific images
+    case "node.js":
+    case "nodejs":
+      return javascript; // Use JavaScript icon as fallback
+    case "rest apis":
+    case "rest api":
+      return graphql; // Use GraphQL as similar icon
+    case "ethereum":
+    case "web3.js":
+    case "web3":
+    case "ipfs":
+    case "ipfs (pinata)":
+    case "pinata":
+      return solidity; // Use Solidity for blockchain-related
+    case "amazon rds":
+    case "rds":
+      return postgresql; // Use PostgreSQL for database
+    case "burp suite":
+    case "xsstrike":
+    case "commix":
+    case "sqlmap":
+    case "pcap analysis":
+    case "pcap":
+    case "netflow/ipdr":
+    case "netflow":
+    case "ipdr":
+      return linux; // Use Linux for security tools
+    case "neural networks":
+    case "model benchmarking":
+      return tensorflow; // Use TensorFlow for ML
+    case "amazon bedrock":
+    case "bedrock":
+      return aws; // Use AWS icon
+    case "google gemini":
+    case "gemini":
+      return python; // Use Python as fallback
+    case "zustand":
+    case "eslint":
+    case "clerk":
+    case "lucide react":
+    case "stripe":
+      return react; // Use React for React-related tools
+    case "postman":
+      return graphql; // Use GraphQL as API tool
+    case "shell scripts":
+    case "shell":
+    case "bash":
+      return linux;
+    case "cron":
+      return linux;
     default:
-      break;
+      // Return a default placeholder or null
+      return javascript; // Default fallback
   }
 };
